@@ -1,19 +1,13 @@
 # File: lib/todo_list.py
 class TodoList:
     def __init__(self):
-        #self.complete = []
-        #self.incomplete = []
         self.todos = []
 
     def add(self, todo):
         # Parameters: 
         #   todo: an instance of Todo
-        #todo = Todo(self)
-        #self.listOfTasks = []
-        #self.listOfTasks.append()
 
         self.todos.append(todo)
-        
         # Returns:
         #   Nothing
         # Side-effects:
@@ -22,18 +16,12 @@ class TodoList:
     def incomplete(self):
         # Returns:
         #   A list of Todo instances representing the todos that are not complete
-        #if Todo.task() is False:
-        #    self.incomplete = TodoList.add(Todo.task)
-        #    return self.incomplete
-        
         return [todo for todo in self.todos if not todo.complete]
 
     def complete(self):
         # Returns:
         #   A list of Todo instances representing the todos that are complete
-        #if Todo.task() is True:
-        #    self.complete = TodoList.add(Todo.task)
-        #    return self.complete
+
 
         return [todo for todo in self.todos if todo.complete]
 
@@ -42,7 +30,9 @@ class TodoList:
         #   Nothing
         # Side-effects:
         #   Marks all todos as complete
-        self.incomplete = TodoList.remove(Todo.task)
+
+        for todo in self.todos:
+            todo.remove()
 
 
 # File: lib/todo.py

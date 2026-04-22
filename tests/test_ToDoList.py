@@ -10,21 +10,26 @@ def test_add_todo_to_incomplete_list():
 def test_add_todo_to_complete_list():
     completelist = TodoList()
     task1 = Todo("Wash Dishes")
+    task1.mark_complete()
     completelist.add(task1)
     assert completelist.complete() == [task1]
 
-def test_add_task_as_complete():
-    completetask = Todo()
-    completelist = TodoList()
-    assert Todo.mark_complete("Clean Dog") == completelist.complete("Clean Dog")
 
-def test_add_task_as_incomplete():
-    incompletetask = Todo()
-    incompletelist = TodoList()
-    assert Todo("Clean Dog") == incompletelist.incomplete("Clean Dog")
 
 def test_given_up_a_task():
-    incompletetask = Todo()
     incompletelist = TodoList()
-    assert TodoList.give_up("Wash Dog") == incompletelist([])
+    incompletetask = Todo("Wash Dog")
+    assert incompletelist.give_up() == None
 
+'''
+def test_if_given_empty_task():
+    with pytest.raises Value Error as e:    
+    
+def test_if_an_empty_list():
+    raise Exception(String)
+
+def test_give_up_task_that_doesnt_exist():
+    raise Exception(String)
+
+
+'''
